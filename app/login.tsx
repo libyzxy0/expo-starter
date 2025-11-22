@@ -2,8 +2,10 @@ import { Text, View, Button, Input, SafeAreaView } from '@/components';
 import { Image } from 'expo-image';
 import logo from '@/assets/images/logo.png';
 import { useColors } from "@/hooks/useColors";
+import { useAuthStore } from '@/utils/auth-store';
 
-export default function Main() {
+export default function LoginPage() {
+  const { logIn } = useAuthStore();
   return (
     <SafeAreaView>
       <View style={{
@@ -54,7 +56,7 @@ export default function Main() {
           width: '100%',
           marginTop: 5
         }}>
-          <Button style={{
+          <Button onPress={logIn} style={{
             paddingVertical: 10,
             alignItems: 'center',
             width: '100%',

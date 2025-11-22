@@ -55,13 +55,13 @@ const styles = StyleSheet.create({
         fontFamily: "Nunito"
     },
     bold: {
-        fontSize: 27,
+        fontSize: 26,
         fontFamily: "NunitoBold",
-        lineHeight: 32
+        lineHeight: 30
     },
     semibold: {
-        fontSize: 14,
-        lineHeight: 24,
+        fontSize: 24,
+        lineHeight: 28,
         fontFamily: "NunitoSemiBold"
     },
     italic: {

@@ -2,10 +2,10 @@ import { Text, View, Button, SafeAreaView, Link } from "@/components";
 import { useColors } from "@/hooks/useColors";
 import illustrationSvg from "@/assets/images/storyset/startup-life-rafiki.svg";
 import { Image } from "expo-image";
-import { useRouter } from 'expo-router'
+import { useAuthStore } from '@/utils/auth-store';
 
 export default function Welcome() {
-    const router = useRouter();
+    const { completeOnboarding } = useAuthStore();
     
     return (
         <SafeAreaView>
@@ -56,7 +56,7 @@ export default function Welcome() {
                       lineHeight: 12,
                     }}>© Illustration shown above is from Business illustrations by Storyset https://storyset.com/business</Text>
                     <Button
-                    onPress={() => router.push('/')}
+                    onPress={completeOnboarding}
                         style={{
                             paddingVertical: 10,
                             alignItems: "center",

@@ -11,7 +11,7 @@ import { useEffect } from "react";
 import "react-native-reanimated";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { useColorScheme } from "@/hooks/useColorScheme";
-
+import { useAuthStore } from '@/utils/auth-store';
 export {
     // Catch any errors thrown by the Layout component.
     ErrorBoundary
@@ -52,11 +52,9 @@ export default function RootLayout() {
     return <RootLayoutNav />;
 }
 
-const isAuthenticated = true;
-const isFinishedOnboarding = true;
-
 function RootLayoutNav() {
     const colorScheme = useColorScheme();
+    const { isLoggedIn, hasCompletedOnboarding } = useAuthStore();
 
     return (
         <ThemeProvider
@@ -64,28 +62,28 @@ function RootLayoutNav() {
         >
             <SafeAreaProvider>
                 <Stack>
-                    <Stack.Protected guard={isFinishedOnboarding}>
-                        <Stack.Protected guard={isAuthenticated}>
+                    <Stack.Protected guard={hasCompletedOnboarding}>
+                        <Stack.Protected guard={isLoggedIn}>
                             <Stack.Screen
                                 name="(tabs)"
                                 options={{
                                     headerShown: false,
-                                    animation: "none"
+                                    animation: "fade"
                                 }}
                             />
                         </Stack.Protected>
-                        <Stack.Protected guard={!isAuthenticated}>
+                        <Stack.Protected guard={!isLoggedIn}>
                             <Stack.Screen
                                 name="login"
                                 options={{
                                     headerShown: false,
-                                    animation: "none"
+                                    animation: "fade"
                                 }}
                             />
                         </Stack.Protected>
                     </Stack.Protected>
 
-                    <Stack.Protected guard={!isFinishedOnboarding}>
+                    <Stack.Protected guard={!hasCompletedOnboarding}>
                         <Stack.Screen
                             name="onboarding/index"
                             options={{
