@@ -28,7 +28,7 @@ export function Text({ style, type = "default", ...rest }: ThemedTextProps) {
         <DefaultText
             style={[
                 {
-                    color: colorMap[type]
+                    color: colors[colorMap[type]]
                 },
                 styles[type] ? styles[type] : null,
                 style
