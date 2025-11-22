@@ -52,7 +52,8 @@ export default function RootLayout() {
     return <RootLayoutNav />;
 }
 
-const isAuthenticated = false;
+const isAuthenticated = true;
+const isFinishedOnboarding = true;
 
 function RootLayoutNav() {
     const colorScheme = useColorScheme();
@@ -63,16 +64,45 @@ function RootLayoutNav() {
         >
             <SafeAreaProvider>
                 <Stack>
-                    <Stack.Protected guard={isAuthenticated}>
-                        <Stack.Screen
-                            name="(tabs)"
-                            options={{ headerShown: false, animation: "none" }}
-                        />
+                    <Stack.Protected guard={isFinishedOnboarding}>
+                        <Stack.Protected guard={isAuthenticated}>
+                            <Stack.Screen
+                                name="(tabs)"
+                                options={{
+                                    headerShown: false,
+                                    animation: "none"
+                                }}
+                            />
+                        </Stack.Protected>
+                        <Stack.Protected guard={!isAuthenticated}>
+                            <Stack.Screen
+                                name="login"
+                                options={{
+                                    headerShown: false,
+                                    animation: "none"
+                                }}
+                            />
+                        </Stack.Protected>
                     </Stack.Protected>
-                    <Stack.Protected guard={!isAuthenticated}>
+
+                    <Stack.Protected guard={!isFinishedOnboarding}>
                         <Stack.Screen
-                            name="login"
-                            options={{ headerShown: false, animation: "none" }}
+                            name="onboarding/index"
+                            options={{
+                                headerShown: false
+                            }}
+                        />
+                        <Stack.Screen
+                            name="onboarding/benefits"
+                            options={{
+                                headerShown: false
+                            }}
+                        />
+                        <Stack.Screen
+                            name="onboarding/final"
+                            options={{
+                                headerShown: false
+                            }}
                         />
                     </Stack.Protected>
                 </Stack>
