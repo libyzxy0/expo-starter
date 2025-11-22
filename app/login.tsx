@@ -5,9 +5,7 @@ import { useColors } from "@/hooks/useColors";
 
 export default function Main() {
   return (
-    <SafeAreaView style={{
-      flex: 1,
-    }}>
+    <SafeAreaView>
       <View style={{
         marginTop: 80,
         alignItems: 'center',
