@@ -1,3 +1,4 @@
+import React from 'react';
 import { Text, View } from '@/components'
 import { useColors } from '@/hooks/useColors'
 

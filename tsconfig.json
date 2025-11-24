@@ -6,7 +6,10 @@
       "@/*": [
         "./*"
       ]
-    }
+    },
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "outDir": "types"
   },
   "include": [
     "**/*.ts",

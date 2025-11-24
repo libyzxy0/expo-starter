@@ -1,11 +1,10 @@
 import { Text, View, SafeAreaView, Button, Link } from "@/components";
-import { useColors } from "@/hooks/useColors";
 import { useAuthActions } from "@/utils/auth-store";
 import { Header } from '@/components/Header'
+import { useColors } from '@/hooks/useColors'
 
 export default function Main() {
     const colors = useColors();
-    const { logOut, resetOnboarding } = useAuthActions();
     return (
         <SafeAreaView>
           <Header />
