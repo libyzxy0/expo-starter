@@ -7,7 +7,9 @@ export default {
     border: "#e8e8e8",
     card: "#ffffff",
     input: "#f2f2f2",
-    danger: "#ff5252",
+    danger: "#f83030",
+    warning: '#f4d112',
+    success: '#42f14f'
   },
   dark: {
     primary: "#1f58db",
@@ -17,6 +19,8 @@ export default {
     border: "#3a3a3c", 
     card: "#323234", 
     input: "#323234", 
-    danger: "#ff7b7b",
+    danger: "#f83030",
+    warning: '#f4d112',
+    success: '#42f14f'
   },
 };

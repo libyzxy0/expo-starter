@@ -2,10 +2,10 @@ import { Text, View, Button, SafeAreaView, Link } from "@/components";
 import { useColors } from "@/hooks/useColors";
 import illustrationSvg from "@/assets/images/storyset/startup-life-rafiki.svg";
 import { Image } from "expo-image";
-import { useAuthStore } from '@/utils/auth-store';
+import { useAuthActions } from '@/utils/auth-store';
 
 export default function Welcome() {
-    const { completeOnboarding } = useAuthStore();
+    const { completeOnboarding } = useAuthActions();
     
     return (
         <SafeAreaView>
@@ -38,7 +38,7 @@ export default function Welcome() {
                                 textAlign: "center"
                             }}
                         >
-                            Enjoy using the app, feel free to customize this boilerplate, happy coding 👨‍💻!
+                            Enjoy using the app, feel free to customize this boilerplate, happy hacking! 👨‍💻
                         </Text>
                     </View>
                 </View>

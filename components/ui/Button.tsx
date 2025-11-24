@@ -55,6 +55,13 @@ export function Button({
               padding: 5,
               borderRadius: 20
              } : null,
+             variant === 'danger' ? {
+              backgroundColor: colors.danger,
+              alignSelf: 'flex-start',
+              paddingVertical: 8,
+              paddingHorizontal: 16,
+              borderRadius: 6
+             } : null,
              style]}
             {...otherProps}>
             {children}

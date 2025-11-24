@@ -11,7 +11,10 @@ import { useEffect } from "react";
 import "react-native-reanimated";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { useColorScheme } from "@/hooks/useColorScheme";
-import { useAuthStore } from '@/utils/auth-store';
+import { useAuthStore } from "@/utils/auth-store";
+import { useColors } from "@/hooks/useColors";
+import * as SystemUI from "expo-system-ui";
+import { Toast } from "@/components";
 export {
     // Catch any errors thrown by the Layout component.
     ErrorBoundary
@@ -34,6 +37,8 @@ export default function RootLayout() {
         NunitoBold: require("../assets/fonts/Nunito-Bold.ttf"),
         ...Ionicons.font
     });
+
+    SystemUI.setBackgroundColorAsync(useColors().background);
 
     // Expo Router uses Error Boundaries to catch errors in the navigation tree.
     useEffect(() => {
@@ -80,6 +85,13 @@ function RootLayoutNav() {
                                     animation: "fade"
                                 }}
                             />
+                            <Stack.Screen
+                                name="create-account"
+                                options={{
+                                    headerShown: false,
+                                    animation: "fade"
+                                }}
+                            />
                         </Stack.Protected>
                     </Stack.Protected>
 
@@ -104,6 +116,7 @@ function RootLayoutNav() {
                         />
                     </Stack.Protected>
                 </Stack>
+                <Toast />
             </SafeAreaProvider>
         </ThemeProvider>
     );

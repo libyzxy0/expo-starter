@@ -9,4 +9,5 @@ export function useColors(inverted?: boolean) {
                 : "dark"
             : useColorScheme() ?? "light"
     ];
+    //return Colors['light'];
 }

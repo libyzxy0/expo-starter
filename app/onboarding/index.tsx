@@ -50,7 +50,7 @@ export default function Welcome() {
                         >
                             Welcome to expo starter, a basic template for
                             starting your expo projects with autuentication
-                            features and decent login, register and otp page,
+                            features and decent login, register, otp and onboarding page,
                             designed and developed for you by{" "}
                             <Link url="https://github.com/libyzxy0">
                                 @libyzxy0
