@@ -1,10 +1,11 @@
+import {Text} from './Text';
 import React from "react";
 import { TouchableOpacity, type TouchableOpacityProps } from "react-native";
 import { useColors } from "@/hooks/useColors";
 
 export type ThemedButtonProps = TouchableOpacityProps & {
   variant?: 'default' | 'secondary' | 'outline' | 'icon' | 'danger';
-  children: React.ReactNode;
+  children: string | React.ReactNode;
 };
 
 export function Button({
@@ -57,7 +58,15 @@ export function Button({
         } : null,
         style]}
       {...otherProps}>
-      {children}
+      {React.isValidElement(children) ? (
+        children
+      ) : (
+        <Text style={{
+          fontFamily: 'NunitoSemiBold',
+          fontSize: 16,
+          color: ["danger", "default"].includes(variant) ? '#ffffff' : colors.text
+        }}>{children}</Text>
+      )}
     </TouchableOpacity>
   );
 }

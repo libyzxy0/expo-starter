@@ -36,6 +36,7 @@ export const useAuthStore = create(
           });
         },
         logout: () => {
+          console.log("Logging out!");
           set(state => {
             return {
               ...state,
@@ -67,7 +68,7 @@ export const useAuthStore = create(
         setItem,
         getItem,
         removeItem: deleteItemAsync
-      }))
+      })),
     }
   )
 );

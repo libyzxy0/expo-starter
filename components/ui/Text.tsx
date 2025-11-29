@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
     fontFamily: "Nunito"
   },
   medium: {
-    fontSize: 14,
+    fontSize: 16,
     lineHeight: 24,
     fontFamily: "NunitoMedium"
   },
@@ -73,8 +73,8 @@ const styles = StyleSheet.create({
     lineHeight: 30
   },
   semibold: {
-    fontSize: 24,
-    lineHeight: 28,
+    fontSize: 22,
+    lineHeight: 26,
     fontFamily: "NunitoSemiBold"
   },
   italic: {

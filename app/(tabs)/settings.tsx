@@ -5,7 +5,8 @@ import { Header } from "@/components/Header";
 
 export default function Settings() {
     const colors = useColors();
-    const { logout, resetOnboarding } = useAuthActions();
+    const {logout, resetOnboarding} = useAuthActions();
+    
     return (
         <SafeAreaView>
             <Header />
@@ -34,7 +35,7 @@ export default function Settings() {
                 >
                     <Button
                         variant={"danger"}
-                        onPress={logout}
+                        onPress={() => logout()}
                         style={{
                             paddingVertical: 8,
                             alignItems: "center",
@@ -61,7 +62,7 @@ export default function Settings() {
                     }}
                 >
                     <Button
-                        onPress={resetOnboarding}
+                        onPress={() => resetOnboarding()}
                         style={{
                             paddingVertical: 8,
                             alignItems: "center",
