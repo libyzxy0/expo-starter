@@ -10,7 +10,7 @@ import {
 import { Image } from "expo-image";
 import logo from "@/assets/images/logo.png";
 import { useColors } from "@/hooks/useColors";
-import { useAuthActions } from "@/utils/auth-store";
+import { useAuthStore } from "@/utils/auth-store";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import React, { useState, useReducer } from "react";
 import { ScrollView } from 'react-native'
@@ -79,7 +79,7 @@ function reducer(state: CredType, action: ActionType) {
 }
 
 export default function LoginPage() {
-  const { login } = useAuthActions();
+  //const { createAccount } = useAuthStore();
   const colors = useColors();
   const [showPassword, setShowPassword] = useState(false);
 
@@ -394,15 +394,7 @@ export default function LoginPage() {
                 borderRadius: 10
               }}
             >
-              <Text
-                type="semibold"
-                style={{
-                  fontSize: 16,
-                  color: useColors(true)?.text
-                }}
-              >
                 Create Account
-              </Text>
             </Button>
           </View>
 

@@ -2,10 +2,10 @@ import { Text, View, Button, SafeAreaView, Link } from "@/components";
 import { useColors } from "@/hooks/useColors";
 import illustrationSvg from "@/assets/images/storyset/startup-life-rafiki.svg";
 import { Image } from "expo-image";
-import { useAuthActions } from '@/utils/auth-store';
+import { useAuthStore } from '@/utils/auth-store';
 
 export default function Welcome() {
-  const { completeOnboarding } = useAuthActions();
+  const { completeOnboarding } = useAuthStore();
 
   return (
     <SafeAreaView>

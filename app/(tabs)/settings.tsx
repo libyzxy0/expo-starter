@@ -1,11 +1,11 @@
 import { Text, View, SafeAreaView, Button } from "@/components";
 import { useColors } from "@/hooks/useColors";
-import { useAuthActions } from "@/utils/auth-store";
+import { useAuthStore } from "@/utils/auth-store";
 import { Header } from "@/components/Header";
 
 export default function Settings() {
     const colors = useColors();
-    const {logout, resetOnboarding} = useAuthActions();
+    const {logout, resetOnboarding} = useAuthStore();
     
     return (
         <SafeAreaView>
@@ -43,15 +43,7 @@ export default function Settings() {
                             borderRadius: 8
                         }}
                     >
-                        <Text
-                            type="semibold"
-                            style={{
-                                fontSize: 16,
-                                color: useColors(true).text
-                            }}
-                        >
-                            Logout
-                        </Text>
+                        Logout
                     </Button>
                 </View>
 
@@ -70,15 +62,7 @@ export default function Settings() {
                             borderRadius: 8
                         }}
                     >
-                        <Text
-                            type="semibold"
-                            style={{
-                                fontSize: 16,
-                                color: useColors(true).text
-                            }}
-                        >
-                            Reset Onboarding
-                        </Text>
+                        Reset Onboarding
                     </Button>
                 </View>
             </View>

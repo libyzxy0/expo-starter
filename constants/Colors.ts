@@ -9,6 +9,7 @@ export type ColorThemeType = {
   danger: string;
   warning: string;
   success: string;
+  gray: string;
 }
 
 export type ColorsType = {
@@ -25,9 +26,10 @@ export const Colors = {
     border: "#e8e8e8",
     card: "#ffffff",
     input: "#f2f2f2",
-    danger: "#f83030",
-    warning: '#f4d112',
-    success: '#42f14f'
+    danger: "#e30f0f",
+    warning: '#c8ac10',
+    success: '#15c122',
+    gray: '#bababa'
   },
   dark: {
     primary: "#1f58db",
@@ -39,6 +41,7 @@ export const Colors = {
     input: "#323234",
     danger: "#f83030",
     warning: '#f4d112',
-    success: '#42f14f'
+    success: '#42f14f',
+    gray: '#9a9a9a'
   }
 } satisfies ColorsType;

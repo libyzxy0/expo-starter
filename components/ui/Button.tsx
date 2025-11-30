@@ -30,10 +30,10 @@ export function Button({
         variant === 'outline' ? {
           backgroundColor: 'transparent',
           alignSelf: 'flex-start',
-          borderWidth: 1.5,
+          borderWidth: 1,
           borderColor: colors.border,
-          paddingVertical: 7,
-          paddingHorizontal: 15,
+          paddingVertical: 7.5,
+          paddingHorizontal: 15.5,
           borderRadius: 6
         } : null,
         variant === 'secondary' ? {

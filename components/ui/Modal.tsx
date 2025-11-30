@@ -1,6 +1,5 @@
 import React from "react";
-import { Text } from "@/components/ui/Text";
-import { View } from "@/components/ui/View";
+import { View } from "./View";
 import {
   Modal as DefaultModal,
   type ModalProps,
@@ -18,6 +17,7 @@ export function Modal({
   const colors = useColors();
   return (
     <DefaultModal
+      transparent
       animationType="fade"
       visible={visible}
       onRequestClose={onRequestClose}
@@ -41,8 +41,9 @@ export function ModalContent({
       style={[
         {
           backgroundColor: colors.card,
-          borderRadius: 8,
-          padding: 10,
+          borderRadius: 12,
+          paddingHorizontal: 18,
+          paddingVertical: 20,
           marginHorizontal: 20,
           minWidth: 300,
           shadowColor: colors.background,
@@ -70,7 +71,8 @@ function ModalOverlay({ children }: { children: React.ReactNode }) {
       style={{
         flex: 1,
         justifyContent: "center",
-        alignItems: "center"
+        alignItems: "center",
+        backgroundColor: useColors().card + "0A"
       }}
     >
       {children}

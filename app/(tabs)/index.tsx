@@ -1,14 +1,42 @@
+import React, { useState } from 'react'
 import { Text, View, SafeAreaView, Button, Link, Input, showToast } from "@/components";
-import { useAuthActions } from "@/utils/auth-store";
+import { ModalConfirm } from '@/components/ui/modals/ModalConfirm'
+import { ModalDestructive } from '@/components/ui/modals/ModalDestructive'
 import { Header } from '@/components/Header'
 import { useColors } from '@/hooks/useColors'
 import { ScrollView } from 'react-native'
+
 export default function Main() {
   const colors = useColors();
+  const [showConfirmModal, setShowConfirmModal] = useState(false);
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
   return (
     <SafeAreaView>
       <ScrollView showsVerticalScrollIndicator={false}>
         <Header />
+        <ModalConfirm
+          description={"Are you sure you want to make this purchase this will cost you 10 PHP?"}
+          visible={showConfirmModal}
+          closeAfterConfirm
+          onClose={() => setShowConfirmModal(false)}
+          onConfirm={() => showToast({
+            type: 'success',
+            text1: 'Modal Confirmed',
+            text2: 'Example description for modal confirmation.'
+          })} />
+
+        <ModalDestructive
+          description={"Are you sure you want to delete this file? This action cannot be undone."}
+          title={"Delete File"}
+          visible={showDeleteModal}
+          closeAfterConfirm
+          onClose={() => setShowDeleteModal(false)}
+          onConfirm={() => showToast({
+            type: 'error',
+            text1: 'Modal Deleted',
+            text2: 'Example description for destructive modal.'
+          })} />
+
         <View style={{
           paddingVertical: 20
         }}>
@@ -106,6 +134,15 @@ export default function Main() {
               }}>
                 <Button
                   style={{
+                    backgroundColor: colors.gray
+                  }}
+                  onPress={() => showToast({
+                    type: 'default',
+                    text1: "Success Toast",
+                    text2: "This is a description for default toast."
+                  })}>Default</Button>
+                <Button
+                  style={{
                     backgroundColor: colors.success
                   }}
                   onPress={() => showToast({
@@ -131,6 +168,24 @@ export default function Main() {
                     text2: "This is a description for error toast."
                   })}
                 >Error</Button>
+              </View>
+            </View>
+
+            <View style={{
+              gap: 8,
+              marginTop: 16
+            }}>
+              <Text type={"secondary"}>Modals</Text>
+              <View style={{
+                gap: 10,
+                flexDirection: 'row',
+                flexWrap: 'wrap',
+              }}>
+                <Button
+                  onPress={() => setShowConfirmModal(true)}>Confirm</Button>
+                <Button
+                  variant={"danger"}
+                  onPress={() => setShowDeleteModal(true)}>Destructive</Button>
               </View>
             </View>
 
